@@ -175,6 +175,23 @@ header {
 }
 
 /* ========= Sections ========= */
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main, section {
+  flex: 1 0 auto; /* allow main content to grow and push footer down */
+}
+
+footer {
+  flex-shrink: 0; /* prevent footer from shrinking */
+}
+
 section {
   padding: 3rem 1rem;
 }
@@ -298,3 +315,4 @@ footer a:hover {
     font-size: 0.9rem;
   }
 }
+
