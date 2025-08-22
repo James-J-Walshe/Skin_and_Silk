@@ -46,7 +46,7 @@ function initMenu() {
         // Start hide timer
         timeout = setTimeout(() => {
           submenu.style.display = 'none';
-        }, 1000); // 1 second delay
+        }, 100); // 0.1 second delay
       }
     });
   });
