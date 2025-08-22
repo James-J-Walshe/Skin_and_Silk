@@ -27,21 +27,20 @@ function initMenu() {
     });
   }
 
-  // Dropdowns with 1s hide delay only on mouse leave
+  // Dropdowns
   const dropdowns = document.querySelectorAll('.dropdown, .dropdown-submenu');
 
   dropdowns.forEach(drop => {
     let timeout;
 
     drop.addEventListener('mouseenter', () => {
-      // Cancel hide timer if user comes back
       clearTimeout(timeout);
 
       // Show this submenu
       const submenu = drop.querySelector('ul');
       if (submenu) submenu.style.display = 'block';
 
-      // 🔹 Hide all deeper submenus (level 3) when hovering a level 2 dropdown
+      // 🔹 When hovering a level 2 menu, hide all its deeper level 3s
       if (drop.classList.contains('dropdown-submenu')) {
         const allSubmenus = drop.querySelectorAll('.submenu-content ul');
         allSubmenus.forEach(sm => sm.style.display = 'none');
@@ -50,11 +49,16 @@ function initMenu() {
 
     drop.addEventListener('mouseleave', () => {
       const submenu = drop.querySelector('ul');
-      if (submenu) {
-        // Start hide timer
+      if (!submenu) return;
+
+      if (drop.classList.contains('dropdown-submenu')) {
+        // 🔹 Level 2: apply 1s delay
         timeout = setTimeout(() => {
           submenu.style.display = 'none';
-        }, 1000); // 1 second delay
+        }, 1000);
+      } else {
+        // 🔹 Level 1 and deeper than level 2: hide immediately
+        submenu.style.display = 'none';
       }
     });
   });
