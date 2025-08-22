@@ -36,8 +36,16 @@ function initMenu() {
     drop.addEventListener('mouseenter', () => {
       // Cancel hide timer if user comes back
       clearTimeout(timeout);
+
+      // Show this submenu
       const submenu = drop.querySelector('ul');
       if (submenu) submenu.style.display = 'block';
+
+      // 🔹 Hide all deeper submenus (level 3) when hovering a level 2 dropdown
+      if (drop.classList.contains('dropdown-submenu')) {
+        const allSubmenus = drop.querySelectorAll('.submenu-content ul');
+        allSubmenus.forEach(sm => sm.style.display = 'none');
+      }
     });
 
     drop.addEventListener('mouseleave', () => {
@@ -46,7 +54,7 @@ function initMenu() {
         // Start hide timer
         timeout = setTimeout(() => {
           submenu.style.display = 'none';
-        }, 100); // 0.1 second delay
+        }, 1000); // 1 second delay
       }
     });
   });
