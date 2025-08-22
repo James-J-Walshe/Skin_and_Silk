@@ -52,6 +52,18 @@ header {
   text-decoration: none;
 }
 
+header .logo {
+  max-height: 50px;
+  width: auto;
+  margin: 0;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+header .logo:hover {
+  transform: scale(1.05);
+}
+
 /* ========= Navigation ========= */
 .nav-links {
   list-style: none;
