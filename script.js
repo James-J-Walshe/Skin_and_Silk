@@ -55,7 +55,7 @@ function initMenu() {
         // 🔹 Level 2: apply 1s delay
         timeout = setTimeout(() => {
           submenu.style.display = 'none';
-        }, 1000);
+        }, 100);
       } else {
         // 🔹 Level 1 and deeper than level 2: hide immediately
         submenu.style.display = 'none';
