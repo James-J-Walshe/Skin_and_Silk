@@ -321,3 +321,36 @@ footer a:hover {
   }
 }
 
+/* Prevent text from wrapping */
+.nav-links li a {
+  white-space: nowrap;
+}
+
+/* Dropdown base */
+.dropdown-content,
+.submenu-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+/* Top-level dropdown hover */
+.dropdown:hover > .dropdown-content {
+  display: block;
+}
+
+/* Submenu hover */
+.dropdown-submenu:hover > .submenu-content {
+  display: block;
+  left: 100%; /* positions the submenu to the right */
+  top: 0;
+}
+
+/* Positioning for relative parent */
+.dropdown,
+.dropdown-submenu {
+  position: relative;
+}
