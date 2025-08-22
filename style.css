@@ -133,20 +133,21 @@ header {
 .hero {
   background: var(--blush);
   text-align: center;
-  padding: 5rem 2rem;
+  padding: 3rem 2rem; /* Reduced from 5rem to 3rem for smaller hero */
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2rem; /* Reduced from 2.5rem */
   margin-bottom: 1rem;
   color: var(--teal-grey);
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1rem; /* Reduced from 1.2rem */
   max-width: 700px;
   margin: auto;
 }
+
 
 /* ========= Sections ========= */
 section {
