@@ -8,25 +8,7 @@
 </head>
 <body>
   <!-- Header -->
-  <header>
-    <div class="container nav-container">
-      <a href="index.html" class="logo">Radiance</a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li class="dropdown">
-            <a href="services.html" class="active">Services</a>
-            <ul class="dropdown-content">
-              <li><a href="hair-removal.html">Hair Removal</a></li>
-              <li><a href="beauty.html">Beauty</a></li>
-            </ul>
-          </li>
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="bookings.html" class="btn-primary">Bookings</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <header id="header"></header>
 
   <!-- Hero -->
   <section class="hero">
@@ -59,8 +41,18 @@
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Radiance Skin & Beauty | Designed with care</p>
-  </footer>
+  <footer id="footer"></footer>
+
+  <script>
+    // Load header
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+
+    // Load footer
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
 </body>
 </html>
