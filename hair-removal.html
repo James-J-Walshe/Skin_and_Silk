@@ -51,6 +51,15 @@
     fetch('footer.html')
       .then(response => response.text())
       .then(data => document.getElementById('footer').innerHTML = data);
+
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
   </script>
 </body>
 </html>
