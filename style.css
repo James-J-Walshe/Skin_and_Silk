@@ -354,3 +354,11 @@ footer a:hover {
 .dropdown-submenu {
   position: relative;
 }
+
+/* Remove bullets from all dropdown lists */
+.dropdown-content,
+.submenu-content {
+  list-style: none;   /* removes bullets */
+  margin: 0;          /* reset default margin */
+  padding: 0;         /* reset default padding */
+}
