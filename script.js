@@ -17,8 +17,7 @@ fetch('footer.html')
 // ------------------------------
 function initMenu() {
   // Hamburger toggle
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('nav-links');
+  const hamburger = document.getElementById('hamburger');  const navLinks = document.getElementById('nav-links');
 
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
@@ -27,39 +26,4 @@ function initMenu() {
     });
   }
 
-  // Dropdowns
-  const dropdowns = document.querySelectorAll('.dropdown, .dropdown-submenu');
-
-  dropdowns.forEach(drop => {
-    let timeout;
-
-    drop.addEventListener('mouseenter', () => {
-      clearTimeout(timeout);
-
-      // Show this submenu
-      const submenu = drop.querySelector('ul');
-      if (submenu) submenu.style.display = 'block';
-
-      // 🔹 FIX: only hide level-3 menus inside THIS dropdown-submenu
-      if (drop.classList.contains('dropdown-submenu')) {
-        const nestedLevel3s = drop.querySelectorAll('.submenu-content ul');
-        nestedLevel3s.forEach(sm => sm.style.display = 'none');
-      }
-    });
-
-    drop.addEventListener('mouseleave', () => {
-      const submenu = drop.querySelector('ul');
-      if (!submenu) return;
-
-      if (drop.classList.contains('dropdown-submenu')) {
-        // 🔹 Level 2: apply 1s delay
-        timeout = setTimeout(() => {
-          submenu.style.display = 'none';
-        }, 1000);
-      } else {
-        // 🔹 Level 1 & Level 3: hide immediately
-        submenu.style.display = 'none';
-      }
-    });
-  });
-}
+ 
