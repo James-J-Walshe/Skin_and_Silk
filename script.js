@@ -40,10 +40,10 @@ function initMenu() {
       const submenu = drop.querySelector('ul');
       if (submenu) submenu.style.display = 'block';
 
-      // 🔹 When hovering a level 2 menu, hide all its deeper level 3s
+      // 🔹 FIX: only hide level-3 menus inside THIS dropdown-submenu
       if (drop.classList.contains('dropdown-submenu')) {
-        const allSubmenus = drop.querySelectorAll('.submenu-content ul');
-        allSubmenus.forEach(sm => sm.style.display = 'none');
+        const nestedLevel3s = drop.querySelectorAll('.submenu-content ul');
+        nestedLevel3s.forEach(sm => sm.style.display = 'none');
       }
     });
 
@@ -55,9 +55,9 @@ function initMenu() {
         // 🔹 Level 2: apply 1s delay
         timeout = setTimeout(() => {
           submenu.style.display = 'none';
-        }, 500);
+        }, 1000);
       } else {
-        // 🔹 Level 1 and deeper than level 2: hide immediately
+        // 🔹 Level 1 & Level 3: hide immediately
         submenu.style.display = 'none';
       }
     });
