@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hair Removal | Radiance Skin & Beauty</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Shared Header -->
+  <header id="header"></header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Hair Removal Services</h1>
+    <p>Professional hair removal solutions tailored to your comfort and results.</p>
+  </section>
+
+  <!-- Hair Removal Details -->
+  <section>
+    <div class="container">
+      <h2>Our Hair Removal Treatments</h2>
+      <p>Experience smooth, soft skin with our expert techniques:</p>
+
+      <ul style="list-style-type: disc; padding-left: 2rem; margin-top: 1rem;">
+        <li>Full Body Waxing</li>
+        <li>Facial Waxing</li>
+        <li>Brow Shaping</li>
+        <li>Brazilian & Bikini Wax</li>
+        <li>Advanced Hair Removal Treatments (future tech)</li>
+      </ul>
+
+      <p style="margin-top: 1rem;">
+        Each service is delivered by trained professionals in a clean, comfortable environment. 
+        Book a session today to enjoy silky smooth results.
+      </p>
+
+      <a href="bookings.html" class="btn-primary">Book Now</a>
+    </div>
+  </section>
+
+  <!-- Shared Footer -->
+  <footer id="footer"></footer>
+
+  <!-- JS for shared header/footer -->
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
+</body>
+</html>
