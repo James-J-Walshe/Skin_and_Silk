@@ -1,523 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Keperra Skin & Silk | Hair Removal & Beauty Treatments in Keperra, Brisbane</title>
-  <meta name="description" content="Keperra Skin & Silk offers expert hair removal (waxing, IPL, electrolysis) and beauty skin treatments in Keperra, Brisbane. Book online for smooth, radiant results." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      /* Brand Palette */
-      --rose-gold: #B76E79;       /* Primary accent */
-      --teal-grey: #2E3A3F;       /* Headlines / dark bg */
-      --blush: #F5D9DB;           /* Soft highlight */
-      --ivory: #FFF8F3;           /* Page background */
-      --ink: #1B1F22;             /* Body text */
-      --white: #ffffff;
-      --muted: #8A9499;
-      --success: #2f9e44;
-      --shadow: 0 10px 30px rgba(0,0,0,.08);
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family: Montserrat, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
-      color:var(--ink);
-      background:var(--ivory);
-      line-height:1.6;
-    }
-
-    /* Utility */
-    .container{width:min(1200px, 92vw); margin-inline:auto}
-    .btn{display:inline-block; padding:.9rem 1.25rem; border-radius:999px; font-weight:600; text-decoration:none; transition:transform .2s ease, box-shadow .2s ease}
-    .btn:focus{outline:2px solid var(--rose-gold); outline-offset:2px}
-    .btn.primary{background:var(--rose-gold); color:var(--white); box-shadow:var(--shadow)}
-    .btn.primary:hover{transform:translateY(-2px)}
-    .btn.ghost{border:1px solid var(--rose-gold); color:var(--rose-gold); background:transparent}
-
-    /* Header */
-    header{position:sticky; top:0; z-index:50; background:rgba(255,248,243,.9); backdrop-filter:saturate(180%) blur(8px); border-bottom:1px solid #f0e9e3}
-    .nav{display:flex; align-items:center; justify-content:space-between; padding:.75rem 0}
-    .nav-left{display:flex; align-items:center; gap:1rem}
-    .brand-lockup{display:flex; align-items:center; gap:.75rem; text-decoration:none; color:inherit}
-    .brand-type{display:flex; flex-direction:column; line-height:1}
-    .brand-type .title{font-family:"Playfair Display", serif; font-weight:700; letter-spacing:.2px; font-size:1.25rem; color:var(--teal-grey)}
-    .brand-type .sub{font-weight:500; color:var(--muted); font-size:.8rem}
-
-    /* Dropdown */
-    nav ul{list-style:none; display:flex; gap:1.25rem; margin:0; padding:0; align-items:center}
-    nav a{color:var(--teal-grey); text-decoration:none; font-weight:600}
-    .dropdown{position:relative}
-    .dropdown > button{background:none; border:none; font:inherit; color:var(--teal-grey); font-weight:700; cursor:pointer}
-    .menu{position:absolute; top:calc(100% + .6rem); left:0; background:var(--white); border:1px solid #eee; border-radius:14px; box-shadow:var(--shadow); padding:.4rem; display:none; min-width:220px}
-    .menu a{display:block; padding:.6rem .8rem; border-radius:10px}
-    .menu a:hover{background:var(--ivory)}
-    .dropdown[aria-expanded="true"] .menu{display:block}
-
-    /* Mobile nav */
-    .hamburger{display:none; background:none; border:none}
-    @media (max-width: 860px){
-      nav ul{display:none}
-      .hamburger{display:inline-flex}
-      .mobile-drawer{position:fixed; inset:0 0 auto auto; background:var(--white); width:min(86vw, 360px); height:100vh; top:0; right:-100%; transition:right .25s ease; box-shadow:var(--shadow); padding:1.25rem}
-      .mobile-drawer.open{right:0}
-      .mobile-drawer a{display:block; padding:.9rem 0; font-weight:700; color:var(--teal-grey); text-decoration:none}
-      .mobile-drawer .label{font-size:.8rem; color:var(--muted); text-transform:uppercase; letter-spacing:.12em; margin-top:1rem}
-      .mobile-drawer .divider{height:1px; background:#eee; margin:1rem 0}
-    }
-
-    /* Hero */
-    .hero{position:relative; padding:4.5rem 0 3.5rem; background:linear-gradient(180deg, rgba(183,110,121,.08), transparent 40%), var(--ivory)}
-    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:2rem; align-items:center}
-    @media (max-width: 900px){.hero-grid{grid-template-columns:1fr; text-align:center}}
-    .hero h1{font-family:"Playfair Display", serif; font-size:clamp(2rem, 3.8vw + 1rem, 3.4rem); line-height:1.12; color:var(--teal-grey); margin:0 0 1rem}
-    .tagline{font-weight:500; color:var(--muted); margin-bottom:1.5rem}
-    .hero-card{background:var(--white); border:1px solid #f0e9e3; border-radius:22px; padding:1.25rem; box-shadow:var(--shadow)}
-
-    /* Sections */
-    section{padding:3.5rem 0}
-    h2{font-family:"Playfair Display", serif; font-size:2rem; color:var(--teal-grey); margin:0 0 .75rem}
-    h3{font-weight:700; color:var(--teal-grey)}
-    .kicker{letter-spacing:.12em; text-transform:uppercase; color:var(--rose-gold); font-weight:800; font-size:.8rem}
-    .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:2rem}
-    .grid-3{display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem}
-    @media (max-width: 900px){.grid-2, .grid-3{grid-template-columns:1fr}}
-
-    .card{background:var(--white); border-radius:20px; padding:1.25rem; border:1px solid #f0e9e3; box-shadow:var(--shadow)}
-    .icon{width:48px; height:48px}
-
-    /* Services */
-    .service-list li{margin:.4rem 0}
-    .pill{display:inline-block; padding:.35rem .6rem; border-radius:999px; background:var(--blush); color:var(--teal-grey); font-size:.8rem; font-weight:700}
-
-    /* Pricing table */
-    .price{font-size:1.25rem; font-weight:800; color:var(--teal-grey)}
-    .prices .card{display:flex; flex-direction:column; gap:.6rem}
-
-    /* Testimonials */
-    .quote{font-family:"Playfair Display", serif; font-size:1.1rem}
-
-    /* Contact & Booking */
-    form {display:grid; gap:.8rem}
-    input, select, textarea{width:100%; padding:.9rem 1rem; border-radius:12px; border:1px solid #e9e1db; background:var(--white)}
-    label{font-weight:700; font-size:.9rem; color:var(--teal-grey)}
-
-    /* Footer */
-    footer{background:var(--teal-grey); color:var(--white); padding:2.2rem 0}
-    footer a{color:var(--blush); text-decoration:none}
-    .footer-grid{display:grid; grid-template-columns:1.3fr .7fr; gap:1.5rem}
-    @media (max-width: 860px){.footer-grid{grid-template-columns:1fr}}
-
-    /* Logo presentation grid */
-    .logo-showcase{display:grid; grid-template-columns:repeat(3, 1fr); gap:1rem; margin-top:1rem}
-    @media (max-width: 900px){.logo-showcase{grid-template-columns:1fr}}
-    .logo-tile{border:1px dashed #eaded7; border-radius:18px; padding:1rem; background:#fff}
-    .on-teal{background:var(--teal-grey)}
-    .on-blush{background:var(--blush)}
-    .on-ivory{background:var(--ivory)}
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Radiance Skin & Beauty</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Header -->
   <header>
-    <div class="container nav" role="navigation" aria-label="Main">
-      <a href="#home" class="brand-lockup" aria-label="Go to home">
-        <!-- Inline SVG Logo (Horizontal) -->
-        <svg class="icon" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-          <!-- Droplet / leaf -->
-          <defs>
-            <linearGradient id="rg" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stop-color="#C4838C"/>
-              <stop offset="100%" stop-color="#B76E79"/>
-            </linearGradient>
-          </defs>
-          <path d="M32 4 C22 18 12 26 12 38 c0 11 9 20 20 20s20-9 20-20C52 26 42 18 32 4z" fill="url(#rg)" />
-          <!-- Profile line -->
-          <path d="M39 33c-5 1-7 4-7 8 0 3 2 6 2 6" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
-        </svg>
-        <div class="brand-type">
-          <span class="title">Keperra Skin &amp; Silk</span>
-          <span class="sub">Hair Removal &amp; Beauty — Brisbane</span>
-        </div>
-      </a>
-
-      <button class="hamburger" aria-label="Open menu" id="openMenu">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </button>
-
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Radiance</a>
       <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li class="dropdown" id="servicesDropdown" aria-expanded="false">
-            <button aria-haspopup="true" aria-expanded="false">Services</button>
-            <div class="menu" role="menu" aria-label="Services menu">
-              <a href="#hair-removal" role="menuitem">Hair Removal</a>
-              <a href="#beauty" role="menuitem">Beauty</a>
-            </div>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li class="dropdown">
+            <a href="services.html">Services</a>
+            <ul class="dropdown-content">
+              <li><a href="hair-removal.html">Hair Removal</a></li>
+              <li><a href="beauty.html">Beauty</a></li>
+            </ul>
           </li>
-          <li><a href="#contact">Contact Us</a></li>
-          <li><a class="btn primary" href="#bookings">Book Now</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="bookings.html" class="btn-primary">Bookings</a></li>
         </ul>
       </nav>
     </div>
-
-    <div class="mobile-drawer" id="drawer" aria-hidden="true">
-      <div class="label">Menu</div>
-      <a href="#home" onclick="toggleDrawer(false)">Home</a>
-      <div class="divider"></div>
-      <div class="label">Services</div>
-      <a href="#hair-removal" onclick="toggleDrawer(false)">Hair Removal</a>
-      <a href="#beauty" onclick="toggleDrawer(false)">Beauty</a>
-      <div class="divider"></div>
-      <a href="#contact" onclick="toggleDrawer(false)">Contact Us</a>
-      <a href="#bookings" class="btn primary" style="margin-top:1rem" onclick="toggleDrawer(false)">Book Now</a>
-      <button class="btn ghost" style="margin-top:1rem" onclick="toggleDrawer(false)">Close</button>
-    </div>
   </header>
 
-  <main id="home" class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="kicker">Boutique studio · Keperra</div>
-        <h1>Smoother skin. Calmer complexion. <br> One trusted therapist.</h1>
-        <p class="tagline">Specialists in hair removal (waxing · IPL · electrolysis) and advanced beauty skin treatments. Private, one‑on‑one appointments with easy parking.</p>
-        <div style="display:flex; gap:.75rem; flex-wrap:wrap">
-          <a class="btn primary" href="#bookings">Book an appointment</a>
-          <a class="btn ghost" href="#hair-removal">Explore services</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <h3 style="margin-top:0">Brand Mark — Primary Variations</h3>
-        <p style="margin-top:.25rem">Use the <strong>horizontal</strong>, <strong>stacked</strong>, and <strong>icon‑only</strong> logos as shown. Colors adapt for light/dark surfaces.</p>
-        <div class="logo-showcase">
-          <div class="logo-tile on-ivory">
-            <!-- Horizontal lockup -->
-            <div style="display:flex; align-items:center; gap:.8rem">
-              <svg width="54" height="54" viewBox="0 0 64 64" aria-label="Keperra Skin & Silk icon on ivory">
-                <use href="#droplet" />
-                <use href="#profile" />
-              </svg>
-              <div>
-                <div style="font-family:'Playfair Display',serif; font-weight:800; color:var(--teal-grey); font-size:1.25rem">Keperra Skin &amp; Silk</div>
-                <div style="color:var(--rose-gold); font-weight:700; font-size:.82rem">Hair Removal &amp; Beauty</div>
-              </div>
-            </div>
-          </div>
-          <div class="logo-tile on-teal">
-            <!-- Stacked lockup on dark -->
-            <div style="text-align:center">
-              <svg width="60" height="60" viewBox="0 0 64 64" aria-label="Keperra Skin & Silk icon on teal grey">
-                <use href="#droplet-dark" />
-                <use href="#profile-light" />
-              </svg>
-              <div style="font-family:'Playfair Display',serif; font-weight:800; color:var(--white); font-size:1.2rem">Keperra Skin &amp; Silk</div>
-              <div style="color:var(--blush); font-weight:700; font-size:.8rem">Keperra · Brisbane</div>
-            </div>
-          </div>
-          <div class="logo-tile on-blush">
-            <!-- Icon only on blush -->
-            <div style="display:flex; justify-content:center; align-items:center; height:100%">
-              <svg width="64" height="64" viewBox="0 0 64 64" aria-label="Icon only on blush">
-                <use href="#droplet" />
-                <use href="#profile" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Radiance Skin & Beauty</h1>
+      <p>Expert care in hair removal and skin treatments — designed to make you feel confident and radiant.</p>
+      <a href="services.html" class="btn-secondary">Explore Services</a>
     </div>
+  </section>
 
-    <!-- Hidden SVG defs so we can reuse with <use> above -->
-    <svg width="0" height="0" style="position:absolute">
-      <defs>
-        <linearGradient id="rgA" x1="0" x2="0" y1="0" y2="1">
-          <stop offset="0%" stop-color="#C4838C"/>
-          <stop offset="100%" stop-color="#B76E79"/>
-        </linearGradient>
-        <symbol id="droplet" viewBox="0 0 64 64">
-          <path d="M32 4 C22 18 12 26 12 38 c0 11 9 20 20 20s20-9 20-20C52 26 42 18 32 4z" fill="url(#rgA)" />
-        </symbol>
-        <symbol id="profile" viewBox="0 0 64 64">
-          <path d="M39 33c-5 1-7 4-7 8 0 3 2 6 2 6" fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
-        </symbol>
-        <symbol id="droplet-dark" viewBox="0 0 64 64">
-          <path d="M32 4 C22 18 12 26 12 38 c0 11 9 20 20 20s20-9 20-20C52 26 42 18 32 4z" fill="#B76E79" />
-        </symbol>
-        <symbol id="profile-light" viewBox="0 0 64 64">
-          <path d="M39 33c-5 1-7 4-7 8 0 3 2 6 2 6" fill="none" stroke="#FFF8F3" stroke-width="2.6" stroke-linecap="round"/>
-        </symbol>
-      </defs>
-    </svg>
-  </main>
-
-  <section id="hair-removal">
+  <!-- About -->
+  <section class="about">
     <div class="container">
-      <div class="kicker">Services</div>
-      <h2>Hair Removal</h2>
-      <p>We specialise in smooth, long‑lasting results with techniques chosen for your skin, hair, and comfort. Your therapist will recommend the best approach (or combination) after a quick consultation.</p>
-
-      <div class="grid-3 prices" style="margin-top:1.5rem">
-        <div class="card">
-          <h3>Waxing</h3>
-          <p>Gentle, efficient hair removal using premium strip and hot wax. Ideal for brows, underarms, bikini, legs and more.</p>
-          <ul class="service-list">
-            <li><span class="pill">From</span> <span class="price">$20</span> · Brows tidy / lip / chin</li>
-            <li><span class="pill">From</span> <span class="price">$35</span> · Underarms</li>
-            <li><span class="pill">From</span> <span class="price">$45</span> · Bikini / G‑string</li>
-            <li><span class="pill">From</span> <span class="price">$65</span> · Brazilian</li>
-            <li><span class="pill">From</span> <span class="price">$50</span> · Half leg · <span class="price">$70</span> Full leg</li>
-          </ul>
-          <a class="btn primary" href="#bookings" aria-label="Book waxing">Book waxing</a>
-        </div>
-
-        <div class="card">
-          <h3>IPL / Laser Reduction</h3>
-          <p>Light‑based hair reduction for a finer, slower regrowth over a series of sessions. Patch tests ensure safety and suitability.</p>
-          <ul class="service-list">
-            <li><span class="pill">Consult</span> <span class="price">$35</span> · Includes patch test</li>
-            <li><span class="pill">From</span> <span class="price">$59</span> · Upper lip / chin</li>
-            <li><span class="pill">From</span> <span class="price">$99</span> · Underarms</li>
-            <li><span class="pill">From</span> <span class="price">$169</span> · Brazilian</li>
-            <li><span class="pill">From</span> <span class="price">$199</span> · Half leg</li>
-          </ul>
-          <a class="btn primary" href="#bookings" aria-label="Book IPL">Book IPL</a>
-        </div>
-
-        <div class="card">
-          <h3>Electrolysis</h3>
-          <p>Permanent hair removal targeting individual follicles—ideal for hormonal areas or fair/light hairs that light‑based devices miss.</p>
-          <ul class="service-list">
-            <li><span class="pill">Consult</span> <span class="price">$35</span> · 15 mins incl. plan</li>
-            <li><span class="pill">15 min</span> <span class="price">$45</span> · Small areas</li>
-            <li><span class="pill">30 min</span> <span class="price">$75</span> · Precision work</li>
-            <li><span class="pill">60 min</span> <span class="price">$130</span> · Comprehensive</li>
-          </ul>
-          <a class="btn primary" href="#bookings" aria-label="Book electrolysis">Book electrolysis</a>
-        </div>
-      </div>
+      <h2>Welcome to Radiance</h2>
+      <p>
+        Based in Brisbane, Radiance Skin & Beauty has grown from event make-up artistry into a trusted provider 
+        of professional hair removal and skin treatments. Our focus is on delivering personalised, 
+        results-driven services that leave you feeling your best.
+      </p>
+      <p>
+        Whether you’re looking for smooth, silky skin or rejuvenating treatments, our experienced team 
+        is here to help you shine.
+      </p>
     </div>
   </section>
 
-  <section id="beauty">
-    <div class="container">
-      <div class="kicker">Services</div>
-      <h2>Beauty</h2>
-      <p>Skin health comes first. We personalise facials and advanced treatments to soothe, strengthen and brighten. Expect a calm space, thoughtful questions, and a plan you can maintain at home.</p>
-
-      <div class="grid-3 prices" style="margin-top:1.5rem">
-        <div class="card">
-          <h3>Signature Facials</h3>
-          <p>Customised treatments using gentle actives and massage for glow and balance. Suitable for sensitive and mature skins.</p>
-          <ul class="service-list">
-            <li><span class="pill">Express</span> <span class="price">$89</span> · 30 min refresh</li>
-            <li><span class="pill">Classic</span> <span class="price">$129</span> · 60 min reset</li>
-            <li><span class="pill">Luxury</span> <span class="price">$169</span> · 75 min with mask</li>
-          </ul>
-          <a class="btn primary" href="#bookings">Book a facial</a>
-        </div>
-        <div class="card">
-          <h3>Peels &amp; Skin Renewal</h3>
-          <p>Low‑to‑medium strength professional peels to target texture, congestion and tone—tailored to your skin tolerance.</p>
-          <ul class="service-list">
-            <li><span class="pill">Consult</span> <span class="price">$35</span> · Patch test incl.</li>
-            <li><span class="pill">From</span> <span class="price">$119</span> · Level 1 peel</li>
-            <li><span class="pill">From</span> <span class="price">$149</span> · Level 2 peel</li>
-          </ul>
-          <a class="btn primary" href="#bookings">Book a peel</a>
-        </div>
-        <div class="card">
-          <h3>Brows &amp; Lashes</h3>
-          <p>Balanced, face‑framing shaping with tint options. Natural definition for everyday ease.</p>
-          <ul class="service-list">
-            <li><span class="pill">Brow shape</span> <span class="price">$30</span></li>
-            <li><span class="pill">Brow shape + tint</span> <span class="price">$45</span></li>
-            <li><span class="pill">Lash tint</span> <span class="price">$35</span></li>
-          </ul>
-          <a class="btn primary" href="#bookings">Book brows &amp; lashes</a>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:1.5rem">
-        <h3>Skin Consultation</h3>
-        <p>Not sure where to start? Book a 20‑minute consult. We’ll review concerns, routine, and lifestyle, then craft a plan and product set to suit.</p>
-        <p><span class="pill">Intro</span> <span class="price">$35</span> · Redeemable with treatment or products on the day.</p>
-        <a class="btn ghost" href="#bookings">Book a consult</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="container grid-2">
-      <div>
-        <div class="kicker">About</div>
-        <h2>25+ years of careful, results‑focused care</h2>
-        <p>Keperra Skin &amp; Silk began as a boutique makeup studio and grew into a specialist hair removal and beauty space serving Keperra and surrounding Brisbane suburbs. We work one‑on‑one, by appointment only, to ensure privacy, comfort and consistency.</p>
-        <ul>
-          <li>Evidence‑informed techniques with gentle, effective products</li>
-          <li>Electrolysis for permanent removal · IPL/laser reduction · Precision waxing</li>
-          <li>Facials, peels, and calming treatments for sensitive and mature skin</li>
-          <li>Easy parking · Ground‑floor access · Flexible bookings</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3 style="margin-top:0">Your experience</h3>
-        <p class="quote">“Everything is unrushed and personal. We listen, plan, and progress at your pace.”</p>
-        <p>If you’re managing hormonal hair growth, sensitised skin, or simply want maintenance that feels considered, you’re in the right place.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="bookings">
-    <div class="container">
-      <div class="kicker">Bookings</div>
-      <h2>Request an appointment</h2>
-      <p>Use the form to request a time. We’ll confirm by phone or email. If you prefer, call during business hours.</p>
-      <div class="grid-2">
-        <form aria-label="Booking form" onsubmit="event.preventDefault(); alert('Thanks! We\'ll be in touch to confirm your appointment.');">
-          <div>
-            <label for="name">Full name</label>
-            <input id="name" name="name" type="text" placeholder="Your name" required />
-          </div>
-          <div>
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" placeholder="name@example.com" required />
-          </div>
-          <div>
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" type="tel" placeholder="Mobile number" required />
-          </div>
-          <div>
-            <label for="service">Service</label>
-            <select id="service" name="service" required>
-              <option value="" selected disabled>Choose a service</option>
-              <option>Waxing</option>
-              <option>IPL / Laser Reduction</option>
-              <option>Electrolysis</option>
-              <option>Signature Facial</option>
-              <option>Peel</option>
-              <option>Brows & Lashes</option>
-              <option>Skin Consultation</option>
-            </select>
-          </div>
-          <div>
-            <label for="date">Preferred date</label>
-            <input id="date" name="date" type="date" />
-          </div>
-          <div>
-            <label for="time">Preferred time</label>
-            <input id="time" name="time" type="time" />
-          </div>
-          <div style="grid-column:1/-1">
-            <label for="notes">Notes (optional)</label>
-            <textarea id="notes" name="notes" rows="4" placeholder="Tell us your goals or any sensitivities"></textarea>
-          </div>
-          <div style="grid-column:1/-1; display:flex; gap:.75rem; align-items:center">
-            <button class="btn primary" type="submit">Request booking</button>
-            <span aria-live="polite" style="color:var(--muted); font-size:.9rem">We’ll respond within 1 business day.</span>
-          </div>
-        </form>
-        <div class="card">
-          <h3 style="margin-top:0">Prefer to call?</h3>
-          <p><strong>Phone:</strong> (07) 5555 1234<br/>
-             <strong>Email:</strong> hello@keperraskinandsilk.com.au</p>
-          <p><strong>Address:</strong> Keperra, Brisbane QLD · Easy parking</p>
-          <p><strong>Hours:</strong><br/>
-             Tue–Fri: 9:00am – 6:00pm<br/>
-             Sat: 9:00am – 1:00pm · Mon closed</p>
-          <a class="btn ghost" href="#contact">Contact details</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container grid-2">
-      <div>
-        <div class="kicker">Contact</div>
-        <h2>We’d love to help</h2>
-        <p>Questions about the right service for you? Send a note and we’ll guide you.</p>
-        <form aria-label="Contact form" onsubmit="event.preventDefault(); alert('Thanks for your message! We\'ll reply as soon as we can.');">
-          <div>
-            <label for="cname">Name</label>
-            <input id="cname" name="cname" type="text" placeholder="Your name" required />
-          </div>
-          <div>
-            <label for="cemail">Email</label>
-            <input id="cemail" name="cemail" type="email" placeholder="name@example.com" required />
-          </div>
-          <div>
-            <label for="cmsg">Message</label>
-            <textarea id="cmsg" name="cmsg" rows="4" placeholder="How can we help?" required></textarea>
-          </div>
-          <button class="btn primary" type="submit">Send message</button>
-        </form>
-      </div>
-      <div class="card">
-        <h3 style="margin-top:0">Find us</h3>
-        <p>Keperra · Brisbane QLD 4054</p>
-        <p>Parking available nearby. Ground‑floor access.</p>
-        <div style="aspect-ratio:16/10; border-radius:14px; overflow:hidden; border:1px solid #eee;">
-          <!-- Placeholder map embed 
-               Replace the src below with a live Google Maps embed URL when you have the exact address. -->
-          <iframe title="Google Map placeholder" width="100%" height="100%" style="border:0" loading="lazy" allowfullscreen
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=152.93%2C-27.45%2C153.03%2C-27.40&layer=mapnik"></iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- Footer -->
   <footer>
-    <div class="container footer-grid">
-      <div>
-        <div style="display:flex; align-items:center; gap:.6rem; margin-bottom:.75rem">
-          <svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true">
-            <use href="#droplet-dark" />
-            <use href="#profile-light" />
-          </svg>
-          <strong>Keperra Skin &amp; Silk</strong>
-        </div>
-        <div>Hair Removal &amp; Beauty · Keperra, Brisbane</div>
-        <div style="margin-top:.5rem">© <span id="year"></span> Keperra Skin &amp; Silk. All rights reserved.</div>
-      </div>
-      <div>
-        <div style="font-weight:700; margin-bottom:.5rem">Quick links</div>
-        <div style="display:grid; gap:.3rem">
-          <a href="#hair-removal">Hair Removal</a>
-          <a href="#beauty">Beauty</a>
-          <a href="#bookings">Bookings</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
+    <div class="container footer-container">
+      <p>&copy; 2025 Radiance Skin & Beauty · Brisbane</p>
+      <p>
+        <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+      </p>
     </div>
   </footer>
-
-  <script>
-    // Accessible dropdown
-    const dd = document.getElementById('servicesDropdown');
-    dd?.addEventListener('mouseenter', ()=> dd.setAttribute('aria-expanded','true'));
-    dd?.addEventListener('mouseleave', ()=> dd.setAttribute('aria-expanded','false'));
-    dd?.querySelector('button')?.addEventListener('click', (e)=>{
-      const open = dd.getAttribute('aria-expanded') === 'true';
-      dd.setAttribute('aria-expanded', String(!open));
-    });
-
-    // Mobile drawer
-    const drawer = document.getElementById('drawer');
-    const openBtn = document.getElementById('openMenu');
-    function toggleDrawer(force){
-      const open = force ?? !drawer.classList.contains('open');
-      drawer.classList.toggle('open', open);
-      drawer.setAttribute('aria-hidden', String(!open));
-      document.body.style.overflow = open ? 'hidden' : '';
-    }
-    openBtn?.addEventListener('click', ()=> toggleDrawer());
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
