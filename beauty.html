@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beauty Treatments | Radiance Skin & Beauty</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Shared Header -->
+  <header id="header"></header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Beauty Treatments</h1>
+    <p>Enhance your natural glow with our range of professional beauty services.</p>
+  </section>
+
+  <!-- Beauty Details -->
+  <section>
+    <div class="container">
+      <h2>Our Beauty Services</h2>
+      <p>From facials to skin rejuvenation, we offer treatments tailored to your individual needs:</p>
+
+      <ul style="list-style-type: disc; padding-left: 2rem; margin-top: 1rem;">
+        <li>Facials & Skin Treatments</li>
+        <li>Anti-Aging Treatments</li>
+        <li>Hydration & Brightening Treatments</li>
+        <li>Make-up Consultations & Application</li>
+        <li>Special Occasion Prep</li>
+      </ul>
+
+      <p style="margin-top: 1rem;">
+        Our team focuses on delivering relaxing, effective, and results-driven treatments. 
+        Book a session today to look and feel your best.
+      </p>
+
+      <a href="bookings.html" class="btn-primary">Book Now</a>
+    </div>
+  </section>
+
+  <!-- Shared Footer -->
+  <footer id="footer"></footer>
+
+  <!-- JS for shared header/footer -->
+  <script>
+    fetch('header.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('header').innerHTML = data);
+
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
+</body>
+</html>
