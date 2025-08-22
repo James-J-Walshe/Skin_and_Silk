@@ -17,7 +17,8 @@ fetch('footer.html')
 // ------------------------------
 function initMenu() {
   // Hamburger toggle
-  const hamburger = document.getElementById('hamburger');  const navLinks = document.getElementById('nav-links');
+  const hamburger = document.getElementById('hamburger');  
+  const navLinks = document.getElementById('nav-links');
 
   if (hamburger && navLinks) {
     hamburger.addEventListener('click', () => {
